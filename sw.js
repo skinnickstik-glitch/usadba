@@ -1,6 +1,6 @@
 // Офлайн-кэш оболочки приложения. При изменении файлов увеличьте версию.
-const V = "usadba-v1";
-const ASSETS = ["./", "index.html", "styles.css", "config.js", "store.js", "app.js", "fonts/manrope-cyr.woff2", "fonts/manrope-lat.woff2", "fonts/manrope-latext.woff2", "img/hero.webp", "img/fence.webp", "img/bath.webp", "img/canopy.webp", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png"];
+const V = "usadba-v2";
+const ASSETS = ["./", "index.html", "styles.css", "config.js", "store.js", "app.js", "fonts/manrope-cyr.woff2", "fonts/manrope-lat.woff2", "fonts/manrope-latext.woff2", "img/hero.webp", "img/fence.webp", "img/bath2.webp", "img/canopy.webp", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(V).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== V).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener("fetch", e => {

@@ -432,7 +432,7 @@ async function seed() {
     { name: "Алексей", phone: "+7 (903) 555-12-34", address: "СНТ «Рассвет», уч. 112", floor: "", comment: "Навес на одну машину у ворот", visit: false }, d(0), "9:00"));
   await Store.update(c.id, { status: "done", finalPrice: 92000 });
 }
-function sampleImg(kind) { return kind === "bath" ? "img/bath2.webp" : "img/fence.webp"; }
+function sampleImg(kind) { return kind === "bath" ? "img/bath.webp" : "img/fence.webp"; }
 
 // ================================ РОУТЕР ================================
 async function route() {
