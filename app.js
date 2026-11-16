@@ -173,7 +173,7 @@ function renderClient() {
     </section>
 
     ${T.stages?.length ? `<section class="sect" id="how"><div class="wrap">
-      <div class="sect-h"><p class="eyebrow">Порядок работ</p><h2>Четыре этапа — от заявки до воды в доме</h2></div>
+      <div class="sect-h"><p class="eyebrow">Порядок работ</p><h2>Четыре этапа — от заявки до сдачи объекта</h2></div>
       <ol class="stages">${T.stages.map((s, i) => `<li><span class="num">${String(i + 1).padStart(2, "0")}</span><b>${esc(s.t)}</b><p>${esc(s.d)}</p></li>`).join("")}</ol>
     </div></section>` : ""}
 
@@ -306,7 +306,7 @@ async function renderStatus(id) {
   if (!r) { app.innerHTML = header(callBtn()) + `<main class="client"><div class="wrap narrow"><div class="card"><h2>Заявка не найдена</h2><p>Проверьте ссылку. В демо-версии заявки хранятся только на этом устройстве.</p><a class="btn" href="#/">Новая заявка</a></div></div></main>`; return; }
   const idx = STATUS_ORDER.indexOf(r.status);
   const when = r.confirmedTime || `${new Date(r.date).toLocaleDateString("ru-RU", { day: "numeric", month: "long" })}, ${r.slot}`;
-  const sic = { new: "inbox", confirmed: "calendar", onway: "well", done: "check", canceled: "x" }[r.status];
+  const sic = { new: "inbox", confirmed: "calendar", onway: "fence", done: "check", canceled: "x" }[r.status];
   app.innerHTML = header(callBtn()) + `<main class="client status"><div class="wrap narrow">
     <div class="card hero-ok"><span class="st-ic st-${r.status}">${ic(sic)}</span>
       <div><small class="muted">Статус заявки</small><h1>Заявка № ${esc(r.id)}</h1><p class="st-label st-${r.status}">${STATUS[r.status]}</p>
